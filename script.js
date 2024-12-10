@@ -1,5 +1,6 @@
 // Mostrar y ocultar el menú desplegable
 document.querySelector('.dropdown button').addEventListener('click', function() {
+    event.preventDefault();
     const dropdownContent = document.querySelector('.dropdown-content');
     dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
 });
