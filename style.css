@@ -1,4 +1,4 @@
-:root{
+:root {
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --color-oscuro: #333642;
@@ -8,104 +8,98 @@
     --color-textos: #e0cbca;
 }
 
-
-body{
-    background-color:var(--color-textos);
+body {
+    background-color: var(--color-textos);
 }
 
-/* nav header */
-.section-nav{
+/* Barra de navegación */
+.section-nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 100px;
+    height: 80px; /* Ajusta la altura si es necesario */
     background-color: var(--color-oscuro);
-    font-size: 20px;
-    align-content: center;
-    text-align: center;
+    font-size: 1.2rem;
     gap: 12px;
-
-    & div{
-        width: 100%;
-        height: 100%;
-        color:var(--color-medio);
-        background-color: var(--color-medio);
-        align-content: center;
-        align-items: center;
-
-        & h1{
-            font-size: 20px;
-            text-decoration: none;
-            color: var(--color-textos);
-        }
-    }
+    position: fixed;
+    bottom: 0; /* Fija la barra en la parte inferior */
+    left: 0;
+    z-index: 10; /* Asegura que la barra esté por encima de otros elementos */
 }
 
-.nav-container ul{
-    width: auto;
-    color:var(--color-textos);
-    font-size: 20px;
+.section-nav div {
+    width: 100%;
+    color: var(--color-medio);
+    background-color: var(--color-medio);
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: var(--color-textos);
+    text-decoration: none;
+}
+
+.nav-container ul {
+    display: flex;
     justify-content: center;
     gap: 3rem;
+    margin: 0;
+    padding: 0;
 }
 
-.conteiner-list-nav li a{
+.conteiner-list-nav li a {
     text-decoration: none;
     color: var(--color-textos);
     padding: 15px;
-    border-radius: 0 0 15px 15px ;
-
-    &:hover{
-        background-color: var(--color-medio);
-        color: var(--color-claro);
-    
-    }
+    border-radius: 0 0 15px 15px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* banner-header */
+.conteiner-list-nav li a:hover {
+    background-color: var(--color-medio);
+    color: var(--color-claro);
+}
 
-.seccion-banner{
+/* Banner-header */
+.seccion-banner {
     width: 100%;
     height: auto;
     background-color: var(--color-textos);
-
-   
-    
-
-    & img{
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-    }
 }
 
-/* form */
-.seccion-form{
+.seccion-banner img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Formulario */
+.seccion-form {
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
     align-content: center;
     margin-top: 100px;
-    & form{
-        width: auto;
-        background-color: var(--color-medio);
-        display: flex;
-        border-radius: 1rem;
-        flex-direction: column;
-        align-self: center;
-        gap: 15px;
-        padding: 40px;
-       
-    
-    }
-
 }
 
-.seccion-form form div{
+.seccion-form form {
+    width: auto;
+    background-color: var(--color-medio);
+    display: flex;
+    border-radius: 1rem;
+    flex-direction: column;
+    align-self: center;
+    gap: 15px;
+    padding: 40px;
+}
+
+.seccion-form form div {
     color: var(--color-textos);
     font-size: 15px;
     padding: 1px;
@@ -113,7 +107,7 @@ body{
     font-weight: 800;
 }
 
-.seccion-form form div input{
+.seccion-form form div input {
     height: 40px;
     font-size: 20px;
     background-color: var(--color-medio-oscuro);
@@ -122,7 +116,7 @@ body{
     border-radius: 1rem;
 }
 
-/* menu desplegabl */
+/* Menu desplegable */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -158,7 +152,7 @@ body{
 
 .dropdown-content label:hover {
     background-color: var(--color-medio);
-    color:var(--color-textos);
+    color: var(--color-textos);
 }
 
 .dropdown-content input {
@@ -169,19 +163,18 @@ body{
     display: block;
 }
 
-
-.seccion-notas div h1, p{
+.seccion-notas div h1,
+.seccion-notas div p {
     font-size: 40px;
     font-weight: 800;
     color: var(--color-textos);
     text-align: center;
 }
 
-
 /* Notas Dinámicas */
 .note {
     background-color: var(--color-oscuro);
-    color: var(--color-textos); 
+    color: var(--color-textos);
     border: 1px solid var(--color-oscuro);
     border-radius: 10px;
     padding: 1rem;
@@ -190,7 +183,8 @@ body{
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.note h2, .note p {
+.note h2,
+.note p {
     color: var(--color-textos); /* Añadido aquí para asegurar que todo el texto esté en el color adecuado */
 }
 
@@ -221,7 +215,6 @@ body{
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-
 /* Notas Responsivas */
 @media screen and (max-width: 768px) {
     .note {
@@ -239,6 +232,20 @@ body{
 
     .note p:last-child {
         font-size: 1rem;
+    }
+
+    /* Ajuste en la barra de navegación */
+    .section-nav {
+        height: 60px; /* Ajusta la altura de la barra en móviles */
+    }
+
+    .nav-container ul {
+        font-size: 1rem; /* Ajusta el tamaño de la fuente en móviles */
+        gap: 1.5rem; /* Reduce el espacio entre los elementos del menú */
+    }
+
+    .conteiner-list-nav li a {
+        padding: 10px;
     }
 }
 
@@ -258,5 +265,19 @@ body{
 
     .note p:last-child {
         font-size: 0.9rem;
+    }
+
+    /* Ajuste en la barra de navegación */
+    .section-nav {
+        height: 50px; /* Ajusta aún más la altura de la barra en dispositivos muy pequeños */
+    }
+
+    .nav-container ul {
+        font-size: 0.9rem; /* Ajusta el tamaño de la fuente en dispositivos muy pequeños */
+        gap: 1rem; /* Reduce más el espacio entre los elementos del menú */
+    }
+
+    .conteiner-list-nav li a {
+        padding: 8px;
     }
 }
