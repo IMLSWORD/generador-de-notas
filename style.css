@@ -178,9 +178,10 @@ body{
 }
 
 /* Notas Dinámicas */
+/* Notas Dinámicas */
 .note {
     background-color: var(--color-oscuro);
-    color: var(--color-textos);
+    color: var(--color-textos); /* Asegúrate de que el texto tenga el color adecuado */
     border: 1px solid var(--color-oscuro);
     border-radius: 10px;
     padding: 1rem;
@@ -189,9 +190,12 @@ body{
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.note h2, .note p {
+    color: var(--color-textos); /* Añadido aquí para asegurar que todo el texto esté en el color adecuado */
+}
+
 .note h2 {
     font-size: 1.5rem;
-    color: var(--color-textos);
     margin-bottom: 0.5rem;
 }
 
@@ -202,13 +206,13 @@ body{
 }
 
 .note p strong {
-    color: var(--color-textos);
+    color: var(--color-textos); /* Reforzar color del texto de etiquetas strong dentro de las notas */
 }
 
 .note p:last-child {
     font-size: 1.25rem;
     font-weight: bold;
-    color: var(--color-textos);
+    color: var(--color-textos); /* Asegurar que el color del texto total en el último párrafo sea correcto */
     text-align: center;
 }
 
@@ -216,6 +220,7 @@ body{
     transform: translateY(-5px);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Notas Responsivas */
 @media screen and (max-width: 768px) {
