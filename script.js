@@ -76,6 +76,7 @@ function renderNote({ fecha, titulo, contenido, monto, categorias }) {
     note.style.border = '1px solid var(--color-textos)';
     note.style.margin = '1rem 0';
     note.style.padding = '1rem';
+    note.style.color = 'var(--color-textos)'; 
 
     note.innerHTML = `
         <h2>${titulo}</h2>
