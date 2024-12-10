@@ -173,7 +173,7 @@ body{
 .seccion-notas div h1, p{
     font-size: 40px;
     font-weight: 800;
-    color: var(--color-oscuro);
+    color: var(--color-textos);
     text-align: center;
 }
 
