@@ -177,11 +177,11 @@ body{
     text-align: center;
 }
 
-/* Notas Dinámicas */
+
 /* Notas Dinámicas */
 .note {
     background-color: var(--color-oscuro);
-    color: var(--color-textos); /* Asegúrate de que el texto tenga el color adecuado */
+    color: var(--color-textos); 
     border: 1px solid var(--color-oscuro);
     border-radius: 10px;
     padding: 1rem;

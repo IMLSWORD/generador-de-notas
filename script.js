@@ -85,7 +85,8 @@ function renderNote({ fecha, titulo, contenido, monto, categorias }) {
         <p><strong>Categorías:</strong> ${categorias.join(', ')}</p>
         ${
             monto
-                ? `<p style="font-size: 24px; color: var(--color-textos);"><strong>Monto:</strong> $${monto}</p>`
+                ? `<p style="font-size: 24px; color: var(--color-textos);"><strong>Monto:</strong> ₡${monto}</p>`
+
                 : ''
         }
     `;
@@ -132,7 +133,7 @@ const totalMontoElement = document.createElement('p');
 totalMontoElement.classList.add('total-monto');
 totalMontoElement.style.fontSize = '1.5rem';
 totalMontoElement.style.fontWeight = 'bold';
-totalMontoElement.style.color = 'var(--color-medio-oscuro)';
+totalMontoElement.style.color = 'var(--color-textos)';
 totalMontoElement.textContent = 'Monto Total: $0';
 notesSection.appendChild(totalMontoElement);
 
@@ -141,7 +142,8 @@ let totalMonto = 0;
 // Función para actualizar el total de montos
 function updateTotalMonto(amount) {
     totalMonto += amount;
-    totalMontoElement.textContent = `Monto Total: $${totalMonto.toFixed(2)}`;
+    totalMontoElement.textContent = `Monto Total: ₡${totalMonto.toFixed(2)}`;
+
 }
 
 // Registrar el Service Worker
