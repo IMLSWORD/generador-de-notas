@@ -191,7 +191,7 @@ body{
 
 .note h2 {
     font-size: 1.5rem;
-    color: var(--color-claro);
+    color: var(--color-textos);
     margin-bottom: 0.5rem;
 }
 
@@ -202,13 +202,13 @@ body{
 }
 
 .note p strong {
-    color: var(--color-medio-oscuro);
+    color: var(--color-textos);
 }
 
 .note p:last-child {
     font-size: 1.25rem;
     font-weight: bold;
-    color: var(--color-claro);
+    color: var(--color-textos);
     text-align: center;
 }
 
