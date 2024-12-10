@@ -179,7 +179,7 @@ body{
 
 /* Notas Dinámicas */
 .note {
-    background-color: var(--color-medio);
+    background-color: var(--color-oscuro);
     color: var(--color-textos);
     border: 1px solid var(--color-oscuro);
     border-radius: 10px;

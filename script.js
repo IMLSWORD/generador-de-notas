@@ -73,7 +73,7 @@ form.addEventListener('submit', function(event) {
 function renderNote({ fecha, titulo, contenido, monto, categorias }) {
     const note = document.createElement('div');
     note.classList.add('note');
-    note.style.border = '1px solid var(--color-oscuro)';
+    note.style.border = '1px solid var(--color-textos)';
     note.style.margin = '1rem 0';
     note.style.padding = '1rem';
 
@@ -84,7 +84,7 @@ function renderNote({ fecha, titulo, contenido, monto, categorias }) {
         <p><strong>Categorías:</strong> ${categorias.join(', ')}</p>
         ${
             monto
-                ? `<p style="font-size: 24px; color: var(--color-medio-oscuro);"><strong>Monto:</strong> $${monto}</p>`
+                ? `<p style="font-size: 24px; color: var(--color-textos);"><strong>Monto:</strong> $${monto}</p>`
                 : ''
         }
     `;
