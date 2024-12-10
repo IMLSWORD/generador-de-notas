@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="manifest" href="./manifest.json">
+    <title>HEAD</title>
+  </head>
+  <body>
+    <header>
+      <section class="section-nav">
+        <nav class="nav-container">
+          <ul class="conteiner-list-nav">
+            <li>
+              <a href="#form">Inicio</a>
+            </li>
+            <li><a href="#notas">Notas</a></li>
+            
+          </ul>
+        </nav>
+        <div>
+          <h1>organizador de horarios y gastos mensuales</h1>
+        </div>
+      </section>
+
+      <section class="seccion-banner">
+        <img src="./assets/banner1.jpg" alt="" />
+      </section>
+    </header>
+    <main>
+      <section id="form" class="seccion-form">
+        <form>
+          <div>
+            <label for="fecha">Fecha</label>
+            <input type="date" name="fecha" />
+          </div>
+          <div>
+            <label for="titulo">Titulo</label>
+            <input type="text1" name="titulo" />
+          </div>
+          <div>
+            <label for="contenido">Contenido</label>
+            <input type="text" name="contenido" />
+          </div>
+          <div class="dropdown">
+            <button>Seleccionar Categorías</button>
+            <div class="dropdown-content">
+              <label><input type="checkbox" value="opcion1" /> Pagos</label>
+              <label><input type="checkbox" value="opcion2" /> Recibos</label>
+              <label><input type="checkbox" value="opcion3" /> Deudas</label>
+              <label><input type="checkbox" value="opcion4" /> Notas</label>
+            </div>
+          </div>
+
+          <div>
+            <label for="monto">Monto</label>
+            <input type="number" name="monto" />
+          </div>
+          <div>
+            <label for="enviar">enviar</label>
+            <input type="submit" name="enviar" />
+          </div>
+        </form>
+      </section>
+
+      <section id="notas" class="seccion-notas">
+        <div>
+          <h1>Mis notas</h1>
+          <p>aqui aparecen todas las notas guardadas</p>
+        </div>
+
+        <div></div>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

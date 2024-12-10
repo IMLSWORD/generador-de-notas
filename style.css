@@ -1,0 +1,255 @@
+:root{
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --color-oscuro: #333642;
+    --color-medio-oscuro: #60495a;
+    --color-medio: #937684;
+    --color-claro: #caa8b3;
+    --color-textos: #e0cbca;
+}
+
+
+body{
+    background-color:var(--color-textos);
+}
+
+/* nav header */
+.section-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-color: var(--color-oscuro);
+    font-size: 20px;
+    align-content: center;
+    text-align: center;
+    gap: 12px;
+
+    & div{
+        width: 100%;
+        height: 100%;
+        color:var(--color-medio);
+        background-color: var(--color-medio);
+        align-content: center;
+        align-items: center;
+
+        & h1{
+            font-size: 20px;
+            text-decoration: none;
+            color: var(--color-textos);
+        }
+    }
+}
+
+.nav-container ul{
+    width: auto;
+    color:var(--color-textos);
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.conteiner-list-nav li a{
+    text-decoration: none;
+    color: var(--color-textos);
+    padding: 15px;
+    border-radius: 0 0 15px 15px ;
+
+    &:hover{
+        background-color: var(--color-medio);
+        color: var(--color-claro);
+    
+    }
+}
+
+/* banner-header */
+
+.seccion-banner{
+    width: 100%;
+    height: auto;
+    background-color: var(--color-textos);
+
+   
+    
+
+    & img{
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+
+/* form */
+.seccion-form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 100px;
+    & form{
+        width: auto;
+        background-color: var(--color-medio);
+        display: flex;
+        border-radius: 1rem;
+        flex-direction: column;
+        align-self: center;
+        gap: 15px;
+        padding: 40px;
+       
+    
+    }
+
+}
+
+.seccion-form form div{
+    color: var(--color-textos);
+    font-size: 15px;
+    padding: 1px;
+    font-size: 20px;
+}
+
+.seccion-form form div input{
+    font-size: 20px;
+    background-color: var(--color-medio-oscuro);
+    color: var(--color-textos);
+    border: none;
+    border-radius: 1rem;
+}
+
+/* menu desplegabl */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+}
+
+.dropdown button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--color-textos);
+    background-color: var(--color-medio-oscuro);
+    border: none;
+    border-radius: 15px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-claro);
+    border: 1px solid var(--color-oscuro);
+    box-shadow: 0px 8px 16px var(--color-oscuro);
+    z-index: 1;
+    width: 100%;
+}
+
+.dropdown-content label {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-content label:hover {
+    background-color: var(--color-medio);
+    color:var(--color-textos);
+}
+
+.dropdown-content input {
+    margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.seccion-notas div h1, p{
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--color-oscuro);
+    text-align: center;
+}
+
+/* Notas Dinámicas */
+.note {
+    background-color: var(--color-medio);
+    color: var(--color-textos);
+    border: 1px solid var(--color-oscuro);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.note h2 {
+    font-size: 1.5rem;
+    color: var(--color-claro);
+    margin-bottom: 0.5rem;
+}
+
+.note p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+}
+
+.note p strong {
+    color: var(--color-medio-oscuro);
+}
+
+.note p:last-child {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--color-claro);
+    text-align: center;
+}
+
+.note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Notas Responsivas */
+@media screen and (max-width: 768px) {
+    .note {
+        padding: 0.75rem;
+        margin: 0.75rem 0;
+    }
+
+    .note h2 {
+        font-size: 1.25rem;
+    }
+
+    .note p {
+        font-size: 0.9rem;
+    }
+
+    .note p:last-child {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .note {
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .note h2 {
+        font-size: 1rem;
+    }
+
+    .note p {
+        font-size: 0.8rem;
+    }
+
+    .note p:last-child {
+        font-size: 0.9rem;
+    }
+}
