@@ -224,11 +224,12 @@ body {
 /* Footer */
 footer {
     width: 100%;
-    height: auto;
+    height: 200px;
     font-size: 2rem;
     text-align: center;
-    color: var(--color-oscuro);
+    color: var(--color-claro);
     padding: 40px 0;
+    background-color: var(--color-oscuro);
 }
 
 /* Monto Total */
