@@ -31,56 +31,42 @@
       </section>
     </header>
     <main>
-        <section id="form" class="seccion-form">
-            <!-- Botón para mostrar el formulario -->
-            <button id="showFormBtn" class="show-form-btn">Crear Nota</button>
-        
-            <!-- Formulario (oculto por defecto) -->
-            <div id="formContainer" class="form-container" style="display: none;">
-                <form id="noteForm">
-                    <!-- Fecha -->
-                    <div>
-                        <label for="fecha">Fecha</label>
-                        <input placeholder="Ingresa una fecha" type="date" name="fecha" id="fecha" />
-                    </div>
-        
-                    <!-- Título -->
-                    <div>
-                        <label for="titulo">Título</label>
-                        <input placeholder="Ingresa un título" type="text" name="titulo" id="titulo" />
-                    </div>
-        
-                    <!-- Contenido -->
-                    <div>
-                        <label for="contenido">Contenido</label>
-                        <input placeholder="Describe la nota" type="text" name="contenido" id="contenido" />
-                    </div>
-        
-                    <!-- Categorías (Dropdown) -->
-                    <div class="dropdown">
-                        <button type="button" class="dropdown-btn">Seleccionar Categorías</button>
-                        <div class="dropdown-content">
-                            <label><input type="checkbox" value="opcion1" /> Pagos</label>
-                            <label><input type="checkbox" value="opcion2" /> Recibos</label>
-                            <label><input type="checkbox" value="opcion3" /> Deudas</label>
-                            <label><input type="checkbox" value="opcion4" /> Notas</label>
-                        </div>
-                    </div>
-        
-                    <!-- Monto -->
-                    <div>
-                        <label for="monto">Monto</label>
-                        <input placeholder="Ingresa un monto" type="number" name="monto" id="monto" />
-                    </div>
-        
-                    <!-- Enviar -->
-                    <div>
-                        <input type="submit" name="enviar" value="Enviar" />
-                    </div>
-                </form>
+      <section id="form" class="seccion-form">
+        <form>
+          <div>
+            <label for="fecha">Fecha</label>
+            <input placeholder="ingresa una fecha" type="date" name="fecha" />
+          </div>
+          <div>
+            <label  for="titulo">Titulo</label>
+            <input placeholder="ingresa un titulo"  type="text1" name="titulo" />
+          </div>
+          <div>
+            <label for="contenido">Contenido</label>
+            <input placeholder="Describe la nota" type="text" name="contenido" />
+          </div>
+          <div class="dropdown">
+            <button type="menu">Seleccionar Categorías</button>
+            <div class="dropdown-content">
+              <label><input type="checkbox" value="opcion1" /> Pagos</label>
+              <label><input type="checkbox" value="opcion2" /> Recibos</label>
+              <label><input type="checkbox" value="opcion3" /> Deudas</label>
+              <label><input type="checkbox" value="opcion4" /> Notas</label>
             </div>
-        </section>
-        
+          </div>
+
+          <div><button id="showFormBtn" class="show-form-btn">Crear Nota</button></div>
+
+          <div>
+            <label for="monto">Monto</label>
+            <input placeholder="ingresa un monto" type="number" name="monto" />
+          </div>
+          <div>
+            <label for="enviar">enviar</label>
+            <input type="submit" name="enviar" />
+          </div>
+        </form>
+      </section>
 
       <section id="notas" class="seccion-notas">
         <div class="contenedor-notas-titulos">

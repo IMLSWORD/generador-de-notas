@@ -1,380 +1,233 @@
-:root {
+/* Reset de estilos generales */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    --color-oscuro: #333642;
-    --color-medio-oscuro: #60495a;
-    --color-medio: #937684;
-    --color-claro: #caa8b3;
-    --color-textos: #e0cbca;
 }
 
-/* General */
 body {
-    background-color: var(--color-textos);
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Navbar */
-.section-nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    background-color: var(--color-oscuro);
-    font-size: 1.25rem;
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+/* Estilos para la barra de navegación */
+.nav-container {
+    background-color: #4CAF50;
+    padding: 1rem;
     text-align: center;
-    gap: 12px;
 }
 
-.section-nav div {
-    width: 100%;
-    height: 100%;
-    color: var(--color-medio);
-    background-color: var(--color-medio);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.conteiner-list-nav {
+    list-style: none;
 }
 
-.section-nav h1 {
-    font-size: 1.2rem;
-    color: var(--color-textos);
-    text-decoration: none;
-}
-
-/* Navigation (Fixed Bottom for Phones) */
-.nav-container ul {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    padding: 0;
-    margin: 0;
+.conteiner-list-nav li {
+    display: inline-block;
+    margin: 0 15px;
 }
 
 .conteiner-list-nav li a {
+    color: white;
+    font-size: 1.1rem;
     text-decoration: none;
-    color: var(--color-textos);
-    padding: 15px;
-    border-radius: 0 0 15px 15px;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 10px 20px;
 }
 
 .conteiner-list-nav li a:hover {
-    background-color: var(--color-medio);
-    color: var(--color-claro);
+    background-color: #45a049;
+    border-radius: 5px;
 }
 
-/* Banner */
-.seccion-banner {
-    width: 100%;
-    height: auto;
-    background-color: var(--color-textos);
+/* Estilos para el encabezado */
+header {
+    background-color: #f4f4f4;
+    padding: 2rem 0;
 }
 
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Estilos para el banner */
 .seccion-banner img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
 }
 
-/* Form */
+/* Formulario */
 .seccion-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.seccion-form form {
-    width: 100%;
-    background-color: var(--color-medio);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
-    border-radius: 1rem;
+form div {
+    margin-bottom: 1.2rem;
 }
 
-.seccion-form form div {
-    color: var(--color-textos);
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.seccion-form form input {
-    height: 40px;
-    font-size: 20px;
-    background-color: var(--color-medio-oscuro);
-    color: var(--color-textos);
-    border: none;
-    border-radius: 1rem;
-    padding: 10px;
-}
-.seccion-form form input::placeholder{
-    color: var();
-}
-
-/* Dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.dropdown button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    color: var(--color-textos);
-    background-color: var(--color-medio-oscuro);
-    border: none;
-    border-radius: 15px;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--color-claro);
-    border: 1px solid var(--color-oscuro);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    width: 100%;
-}
-
-.dropdown-content label {
+form label {
     display: block;
-    padding: 10px;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
     cursor: pointer;
 }
 
-.dropdown-content label:hover {
-    background-color: var(--color-medio);
-    color: var(--color-textos);
+form button:hover {
+    background-color: #45a049;
 }
 
-.dropdown-content input {
-    margin-right: 10px;
+/* Estilos para la lista de notas */
+.seccion-notas {
+    padding: 2rem;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Notas */
-.seccion-notas div h1,
-.seccion-notas div p {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--color-textos);
+.contenedor-notas-titulos {
     text-align: center;
-    margin: 10px 0;
+    margin-bottom: 2rem;
 }
 
-/* Notas Dinámicas */
 .note {
-    background-color: var(--color-oscuro);
-    color: var(--color-textos);
-    border: 1px solid var(--color-oscuro);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin: 1rem 0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 150px;
-    max-height: 400px;
-    overflow: auto;
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .note h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: var(--color-claro);
-    text-align: center;
+    font-size: 1.5rem;
 }
 
 .note p {
     font-size: 1rem;
-    line-height: 1.5;
-    margin: 0.5rem 0;
+    margin-bottom: 0.5rem;
 }
 
-.note p strong {
-    color: var(--color-textos);
-}
-
-.note p:last-child {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: var(--color-textos);
-    text-align: center;
-}
-
-.note:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Footer */
-footer {
-    width: 100%;
-    height: 200px;
-    font-size: 2rem;
-    text-align: center;
-    color: var(--color-claro);
-    padding: 40px 0;
-    background-color: var(--color-oscuro);
-}
-
-/* Monto Total */
-.monto-total {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--color-medio);
-    text-align: center;
-    margin-top: 20px;
-}
-
-
-/* Estilos generales para el botón "Agregar Nota" */
-.show-form-btn {
-    background-color: var(--color-medio);
-    color: var(--color-textos);
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    border-radius: 10px;
+button {
+    padding: 0.5rem 1rem;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    position: fixed;
-    bottom: 60px;  /* Se ajusta para estar por encima de la nav (ajusta este valor según sea necesario) */
-    right: 20px;  /* Alinea el botón a la derecha */
-    z-index: 1000;  /* Asegura que el botón esté por encima de otros elementos */
+    background-color: #f44336;
+    color: white;
+    font-size: 1rem;
 }
 
-/* Hover effect */
-.show-form-btn:hover {
-    background-color: var(--color-oscuro);
-    color: var(--color-claro);
+button:hover {
+    background-color: #e53935;
 }
 
-/* Monto Total Responsivo */
-@media screen and (max-width: 768px) {
-    .monto-total {
-        font-size: 2rem;
+/* Total monto */
+.total-monto {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Accesibilidad */
+:focus {
+    outline: 3px solid #ffbf47;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="number"],
+select,
+button {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Estilos para el dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 1;
+}
+
+.dropdown-content label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.dropdown button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.dropdown button:hover {
+    background-color: #45a049;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+    }
+
+    .conteiner-list-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conteiner-list-nav li {
+        margin: 10px 0;
+    }
+
+    form input, form button {
+        padding: 0.8rem;
     }
 
     .note {
         padding: 1rem;
-        margin: 1rem 0;
-        max-height: 350px;
-    }
-
-    .note h2 {
-        font-size: 1.5rem;
-    }
-
-    .note p {
-        font-size: 0.9rem;
-    }
-
-    .note p:last-child {
-        font-size: 1.1rem;
-    }
-
-    .section-nav {
-        font-size: 1rem;
-        height: 80px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-container ul {
-        font-size: 1rem;
-        gap: 1.5rem;
-    }
-
-    .conteiner-list-nav li a {
-        padding: 10px;
-    }
-
-    .seccion-form form {
-        width: 90%;
-        padding: 30px;
-    }
-    .show-form-btn {
-        font-size: 1rem;  /* Tamaño de fuente más pequeño en móviles */
-        padding: 8px 15px;  /* Menos relleno en móviles */
-        width: auto;  /* El botón mantiene su tamaño original */
-        bottom: 50px;  /* Ajusta la posición en pantallas más pequeñas */
-        right: 15px;  /* Ajuste en el espacio lateral */
     }
 }
 
-@media screen and (max-width: 480px) {
-    .monto-total {
+@media (max-width: 480px) {
+    h1 {
         font-size: 1.5rem;
     }
 
-    .note {
-        padding: 0.75rem;
-        margin: 1rem 0;
-        max-height: 300px;
-    }
-
     .note h2 {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
 
-    .note p {
-        font-size: 0.8rem;
-    }
-
-    .note p:last-child {
-        font-size: 1rem;
-    }
-
-    .section-nav {
-        font-size: 0.9rem;
-        height: 60px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-container ul {
-        font-size: 0.9rem;
-        gap: 1rem;
-    }
-
-    .conteiner-list-nav li a {
-        padding: 8px;
-    }
-
-    .seccion-form form {
-        width: 95%;
-        padding: 20px;
-    }
-    .show-form-btn {
-        font-size: 0.9rem;  /* Ajuste del tamaño de fuente */
-        padding: 6px 12px;  /* Ajuste del relleno */
-        bottom: 45px;  /* Ajuste la posición en pantallas aún más pequeñas */
-        right: 10px;  /* Ajuste del espacio lateral */
+    .total-monto {
+        font-size: 1.2rem;
     }
 }
