@@ -115,6 +115,9 @@ body {
     border-radius: 1rem;
     padding: 10px;
 }
+.seccion-form form input::placeholder{
+    color: var(--color-textos);
+}
 
 /* Dropdown */
 .dropdown {
