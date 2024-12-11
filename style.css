@@ -1,4 +1,4 @@
-:root{
+:root {
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --color-oscuro: #333642;
@@ -8,125 +8,119 @@
     --color-textos: #e0cbca;
 }
 
-
-body{
-    background-color:var(--color-textos);
+/* General */
+body {
+    background-color: var(--color-textos);
+    margin: 0;
+    padding: 0;
 }
 
-/* nav header */
-.section-nav{
+/* Navbar */
+.section-nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100px;
     background-color: var(--color-oscuro);
-    font-size: 20px;
-    align-content: center;
+    font-size: 1.25rem;
     text-align: center;
     gap: 12px;
-
-    & div{
-        width: 100%;
-        height: 100%;
-        color:var(--color-medio);
-        background-color: var(--color-medio);
-        align-content: center;
-        align-items: center;
-
-        & h1{
-            font-size: 20px;
-            text-decoration: none;
-            color: var(--color-textos);
-        }
-    }
 }
 
-.nav-container ul{
-    width: auto;
-    color:var(--color-textos);
-    font-size: 20px;
+.section-nav div {
+    width: 100%;
+    height: 100%;
+    color: var(--color-medio);
+    background-color: var(--color-medio);
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-nav h1 {
+    font-size: 1.2rem;
+    color: var(--color-textos);
+    text-decoration: none;
+}
+
+/* Navigation */
+.nav-container ul {
+    display: flex;
     justify-content: center;
     gap: 3rem;
+    padding: 0;
+    margin: 0;
 }
 
-.conteiner-list-nav li a{
+.conteiner-list-nav li a {
     text-decoration: none;
     color: var(--color-textos);
     padding: 15px;
-    border-radius: 0 0 15px 15px ;
-
-    &:hover{
-        background-color: var(--color-medio);
-        color: var(--color-claro);
-    
-    }
+    border-radius: 0 0 15px 15px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* banner-header */
+.conteiner-list-nav li a:hover {
+    background-color: var(--color-medio);
+    color: var(--color-claro);
+}
 
-.seccion-banner{
+/* Banner */
+.seccion-banner {
     width: 100%;
     height: auto;
     background-color: var(--color-textos);
-
-   
-    
-
-    & img{
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-    }
 }
 
-/* form */
-.seccion-form{
+.seccion-banner img {
     width: 100%;
-    height: auto;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Form */
+.seccion-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-content: center;
-    margin-top: 100px;
-    & form{
-        width: auto;
-        background-color: var(--color-medio);
-        display: flex;
-        border-radius: 1rem;
-        flex-direction: column;
-        align-self: center;
-        gap: 15px;
-        padding: 40px;
-       
-    
-    }
-
+    align-items: center;
+    margin-top: 50px;
 }
 
-.seccion-form form div{
+.seccion-form form {
+    width: 100%;
+    background-color: var(--color-medio);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 1rem;
+}
+
+.seccion-form form div {
     color: var(--color-textos);
-    font-size: 15px;
-    padding: 1px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 800;
 }
 
-.seccion-form form div input{
+.seccion-form form input {
     height: 40px;
     font-size: 20px;
     background-color: var(--color-medio-oscuro);
     color: var(--color-textos);
     border: none;
     border-radius: 1rem;
+    padding: 10px;
 }
 
-/* menu desplegabl */
+/* Dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
-    width: 200px;
+    width: 100%;
 }
 
 .dropdown button {
@@ -145,7 +139,7 @@ body{
     position: absolute;
     background-color: var(--color-claro);
     border: 1px solid var(--color-oscuro);
-    box-shadow: 0px 8px 16px var(--color-oscuro);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     width: 100%;
 }
@@ -158,7 +152,7 @@ body{
 
 .dropdown-content label:hover {
     background-color: var(--color-medio);
-    color:var(--color-textos);
+    color: var(--color-textos);
 }
 
 .dropdown-content input {
@@ -169,11 +163,12 @@ body{
     display: block;
 }
 
-
-.seccion-notas div h1, p{
+/* Notas */
+.seccion-notas div h1,
+.seccion-notas div p {
     font-size: 40px;
     font-weight: 800;
-    color: var(--color-claro);
+    color: var(--color-textos);
     text-align: center;
 }
 
@@ -191,7 +186,6 @@ body{
 
 .note h2 {
     font-size: 1.5rem;
-    color: var(--color-textos);
     margin-bottom: 0.5rem;
 }
 
@@ -217,12 +211,23 @@ body{
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-footer{
+/* Footer */
+footer {
     width: 100%;
-    height: 400px;
-    font-size: 40px;
+    height: auto;
+    font-size: 2rem;
     text-align: center;
     color: var(--color-oscuro);
+    padding: 40px 0;
+}
+
+/* Monto Total */
+.monto-total {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-medio);
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* Notas Responsivas */
@@ -243,6 +248,30 @@ footer{
     .note p:last-child {
         font-size: 1rem;
     }
+
+    /* Ajustes de barra de navegación */
+    .section-nav {
+        font-size: 1rem;
+        height: 80px;
+    }
+
+    .nav-container ul {
+        font-size: 1rem;
+        gap: 1.5rem;
+    }
+
+    .conteiner-list-nav li a {
+        padding: 10px;
+    }
+
+    .seccion-form form {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .monto-total {
+        font-size: 2rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -261,5 +290,29 @@ footer{
 
     .note p:last-child {
         font-size: 0.9rem;
+    }
+
+    /* Ajustes de barra de navegación */
+    .section-nav {
+        font-size: 0.9rem;
+        height: 60px;
+    }
+
+    .nav-container ul {
+        font-size: 0.9rem;
+        gap: 1rem;
+    }
+
+    .conteiner-list-nav li a {
+        padding: 8px;
+    }
+
+    .seccion-form form {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .monto-total {
+        font-size: 1.5rem;
     }
 }
