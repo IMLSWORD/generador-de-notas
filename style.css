@@ -166,10 +166,11 @@ body {
 /* Notas */
 .seccion-notas div h1,
 .seccion-notas div p {
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: 800;
     color: var(--color-textos);
     text-align: center;
+    margin: 10px 0;
 }
 
 /* Notas Dinámicas */
@@ -178,15 +179,24 @@ body {
     color: var(--color-textos);
     border: 1px solid var(--color-oscuro);
     border-radius: 10px;
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 1rem 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+    max-height: 400px;
+    overflow: auto;
 }
 
 .note h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 0.5rem;
+    color: var(--color-claro);
+    text-align: center;
 }
 
 .note p {
@@ -230,15 +240,20 @@ footer {
     margin-top: 20px;
 }
 
-/* Navbar en la parte inferior para móviles */
+/* Monto Total Responsivo */
 @media screen and (max-width: 768px) {
+    .monto-total {
+        font-size: 2rem;
+    }
+
     .note {
-        padding: 0.75rem;
-        margin: 0.75rem 0;
+        padding: 1rem;
+        margin: 1rem 0;
+        max-height: 350px;
     }
 
     .note h2 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .note p {
@@ -246,7 +261,7 @@ footer {
     }
 
     .note p:last-child {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .section-nav {
@@ -273,20 +288,21 @@ footer {
         width: 90%;
         padding: 30px;
     }
-
-    .monto-total {
-        font-size: 2rem;
-    }
 }
 
 @media screen and (max-width: 480px) {
+    .monto-total {
+        font-size: 1.5rem;
+    }
+
     .note {
-        padding: 0.5rem;
-        margin: 0.5rem 0;
+        padding: 0.75rem;
+        margin: 1rem 0;
+        max-height: 300px;
     }
 
     .note h2 {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .note p {
@@ -294,10 +310,9 @@ footer {
     }
 
     .note p:last-child {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
-    /* Navbar en la parte inferior para móviles */
     .section-nav {
         font-size: 0.9rem;
         height: 60px;
@@ -321,9 +336,5 @@ footer {
     .seccion-form form {
         width: 95%;
         padding: 20px;
-    }
-
-    .monto-total {
-        font-size: 1.5rem;
     }
 }
