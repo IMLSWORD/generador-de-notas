@@ -134,7 +134,7 @@ const totalMontoElement = document.createElement('p');
 totalMontoElement.classList.add('total-monto');
 totalMontoElement.style.fontSize = '1.5rem';
 totalMontoElement.style.fontWeight = 'bold';
-totalMontoElement.style.color = 'var(--color-textos)';
+totalMontoElement.style.color = 'var(--color-oscuro)';
 totalMontoElement.textContent = 'Monto Total: $0';
 notesSection.appendChild(totalMontoElement);
 
