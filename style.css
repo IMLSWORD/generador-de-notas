@@ -22,10 +22,10 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
     background-color: var(--color-oscuro);
     font-size: 1.25rem;
     text-align: center;
+    padding: 10px;
     gap: 12px;
 }
 
@@ -49,7 +49,7 @@ body {
 .nav-container ul {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 2rem;
     padding: 0;
     margin: 0;
 }
@@ -70,7 +70,6 @@ body {
 /* Banner */
 .seccion-banner {
     width: 100%;
-    height: auto;
     background-color: var(--color-textos);
 }
 
@@ -98,6 +97,7 @@ body {
     gap: 20px;
     padding: 40px;
     border-radius: 1rem;
+    transition: padding 0.3s ease;
 }
 
 .seccion-form form div {
@@ -114,7 +114,10 @@ body {
     border: none;
     border-radius: 1rem;
     padding: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
+
 .seccion-form form input::placeholder{
     color: var(--color-textos);
 }
@@ -167,22 +170,6 @@ body {
 }
 
 /* Notas */
-.seccion-notas div h1,
-.seccion-notas div p {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--color-textos);
-    text-align: center;
-    margin: 10px 0;
-}
-/* General */
-body {
-    background-color: var(--color-textos);
-    margin: 0;
-    padding: 0;
-}
-
-/* Títulos de las Notas */
 .seccion-notas .contenedor-notas-titulos h1,
 .seccion-notas .contenedor-notas-titulos p {
     font-size: 2rem;
@@ -205,7 +192,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer; /* Hace que la nota sea clickeable */
+    cursor: pointer;
     overflow: hidden;
 }
 
@@ -254,17 +241,6 @@ footer {
     background-color: var(--color-oscuro);
 }
 
-/* Footer */
-footer {
-    width: 100%;
-    height: 200px;
-    font-size: 2rem;
-    text-align: center;
-    color: var(--color-claro);
-    padding: 40px 0;
-    background-color: var(--color-oscuro);
-}
-
 /* Monto Total */
 .monto-total {
     font-size: 2.5rem;
@@ -274,7 +250,7 @@ footer {
     margin-top: 20px;
 }
 
-/* Monto Total Responsivo */
+/* Responsividad */
 @media screen and (max-width: 768px) {
     .monto-total {
         font-size: 2rem;
@@ -321,6 +297,14 @@ footer {
     .seccion-form form {
         width: 90%;
         padding: 30px;
+    }
+
+    .dropdown button {
+        font-size: 18px;
+    }
+
+    .dropdown-content label {
+        font-size: 16px;
     }
 }
 
@@ -370,5 +354,10 @@ footer {
     .seccion-form form {
         width: 95%;
         padding: 20px;
+    }
+
+    footer {
+        font-size: 1.5rem;
+        padding: 20px 0;
     }
 }
