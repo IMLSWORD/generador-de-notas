@@ -7,23 +7,26 @@
     --color-claro: #caa8b3;
     --color-textos: #e0cbca;
 }
+
 /* General */
 body {
     background-color: var(--color-textos);
     margin: 0;
     padding: 0;
-    font-size: 16px; /* Tamaño de texto base para dispositivos más pequeños */
 }
 
-/* Sección de navegación */
+/* Navbar */
 .section-nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100px;
     background-color: var(--color-oscuro);
-    padding: 10px;
+    font-size: 1.25rem;
+    text-align: center;
+    gap: 12px;
 }
 
 .section-nav div {
@@ -42,59 +45,106 @@ body {
     text-decoration: none;
 }
 
-/* Ajustes para el formulario */
-.show-form-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    font-size: 16px;
+/* Navigation (Fixed Bottom for Phones) */
+.nav-container ul {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+.conteiner-list-nav li a {
+    text-decoration: none;
+    color: var(--color-textos);
+    padding: 15px;
+    border-radius: 0 0 15px 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.conteiner-list-nav li a:hover {
     background-color: var(--color-medio);
-    color: #fff;
+    color: var(--color-claro);
+}
+
+/* Banner */
+.seccion-banner {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-textos);
+}
+
+.seccion-banner img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Form */
+.seccion-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.seccion-form form {
+    width: 100%;
+    background-color: var(--color-medio);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 1rem;
+}
+
+.seccion-form form div {
+    color: var(--color-textos);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.seccion-form form input {
+    height: 40px;
+    font-size: 20px;
+    background-color: var(--color-medio-oscuro);
+    color: var(--color-textos);
     border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+    border-radius: 1rem;
+    padding: 10px;
 }
-
-.show-form-btn:hover {
-    background-color: var(--color-claro);
-}
-
-.form-container {
-    position: fixed;
-    bottom: 80px; /* Ajustar para que no se sobreponga al botón */
-    right: 20px;
-    width: 90%;
-    max-width: 400px;
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: none;
-    z-index: 10;
+.seccion-form form input::placeholder{
+    color: var();
 }
 
 /* Dropdown */
-.dropdown-btn {
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown button {
     width: 100%;
     padding: 10px;
-    background-color: var(--color-medio);
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    text-align: left;
+    font-size: 16px;
     cursor: pointer;
+    color: var(--color-textos);
+    background-color: var(--color-medio-oscuro);
+    border: none;
+    border-radius: 15px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    width: 100%;
+    background-color: var(--color-claro);
+    border: 1px solid var(--color-oscuro);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    width: 100%;
 }
 
 .dropdown-content label {
@@ -104,36 +154,26 @@ body {
 }
 
 .dropdown-content label:hover {
-    background-color: var(--color-claro);
-    color: #fff;
+    background-color: var(--color-medio);
+    color: var(--color-textos);
+}
+
+.dropdown-content input {
+    margin-right: 10px;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Estilo de los campos del formulario */
-form input,
-form textarea {
-    width: 100%;
-    padding: 10px;
+/* Notas */
+.seccion-notas div h1,
+.seccion-notas div p {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-textos);
+    text-align: center;
     margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
-
-form button {
-    background-color: var(--color-medio);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: var(--color-claro);
 }
 
 /* Notas Dinámicas */
@@ -142,29 +182,34 @@ form button:hover {
     color: var(--color-textos);
     border: 1px solid var(--color-oscuro);
     border-radius: 10px;
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 1rem 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.note:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    min-height: 150px;
+    max-height: 400px;
+    overflow: auto;
 }
 
 .note h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: var(--color-claro);
     text-align: center;
-    cursor: pointer;
+}
+
+.note p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+}
+
+.note p strong {
+    color: var(--color-textos);
 }
 
 .note p:last-child {
@@ -172,6 +217,11 @@ form button:hover {
     font-weight: bold;
     color: var(--color-textos);
     text-align: center;
+}
+
+.note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */
@@ -185,10 +235,60 @@ footer {
     background-color: var(--color-oscuro);
 }
 
-/* Responsividad */
+/* Monto Total */
+.monto-total {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-medio);
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* Estilos generales para el botón "Agregar Nota" */
+.show-form-btn {
+    background-color: var(--color-medio);
+    color: var(--color-textos);
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    position: fixed;
+    bottom: 60px;  /* Se ajusta para estar por encima de la nav (ajusta este valor según sea necesario) */
+    right: 20px;  /* Alinea el botón a la derecha */
+    z-index: 1000;  /* Asegura que el botón esté por encima de otros elementos */
+}
+
+/* Hover effect */
+.show-form-btn:hover {
+    background-color: var(--color-oscuro);
+    color: var(--color-claro);
+}
+
+/* Monto Total Responsivo */
 @media screen and (max-width: 768px) {
-    body {
-        font-size: 14px; /* Reducir tamaño de texto en pantallas pequeñas */
+    .monto-total {
+        font-size: 2rem;
+    }
+
+    .note {
+        padding: 1rem;
+        margin: 1rem 0;
+        max-height: 350px;
+    }
+
+    .note h2 {
+        font-size: 1.5rem;
+    }
+
+    .note p {
+        font-size: 0.9rem;
+    }
+
+    .note p:last-child {
+        font-size: 1.1rem;
     }
 
     .section-nav {
@@ -202,52 +302,33 @@ footer {
         box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
     }
 
+    .nav-container ul {
+        font-size: 1rem;
+        gap: 1.5rem;
+    }
+
+    .conteiner-list-nav li a {
+        padding: 10px;
+    }
+
     .seccion-form form {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .note {
-        padding: 1rem;
-        margin: 1rem 0;
-        max-height: 350px;
-    }
-
-    .note h2 {
-        font-size: 1.2rem;
-    }
-
-    .note p {
-        font-size: 0.9rem;
-    }
-
-    .note p:last-child {
-        font-size: 1.1rem;
-    }
-
-    .show-form-btn {
-        font-size: 14px;
-        padding: 12px 22px;
-    }
-
-    .form-container {
         width: 90%;
-        padding: 15px;
-        bottom: 80px;
+        padding: 30px;
     }
-
-    .dropdown-btn {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    footer {
-        font-size: 1.5rem;
-        padding: 20px 0;
+    .show-form-btn {
+        font-size: 1rem;  /* Tamaño de fuente más pequeño en móviles */
+        padding: 8px 15px;  /* Menos relleno en móviles */
+        width: auto;  /* El botón mantiene su tamaño original */
+        bottom: 50px;  /* Ajusta la posición en pantallas más pequeñas */
+        right: 15px;  /* Ajuste en el espacio lateral */
     }
 }
 
 @media screen and (max-width: 480px) {
+    .monto-total {
+        font-size: 1.5rem;
+    }
+
     .note {
         padding: 0.75rem;
         margin: 1rem 0;
@@ -255,7 +336,7 @@ footer {
     }
 
     .note h2 {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
     }
 
     .note p {
@@ -266,23 +347,34 @@ footer {
         font-size: 1rem;
     }
 
-    .form-container {
-        width: 95%;
-        padding: 10px;
+    .section-nav {
+        font-size: 0.9rem;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .show-form-btn {
-        padding: 10px 20px;
-        font-size: 12px;
+    .nav-container ul {
+        font-size: 0.9rem;
+        gap: 1rem;
     }
 
-    .dropdown-btn {
+    .conteiner-list-nav li a {
         padding: 8px;
-        font-size: 12px;
     }
 
-    footer {
-        font-size: 1.2rem;
-        padding: 10px 0;
+    .seccion-form form {
+        width: 95%;
+        padding: 20px;
+    }
+    .show-form-btn {
+        font-size: 0.9rem;  /* Ajuste del tamaño de fuente */
+        padding: 6px 12px;  /* Ajuste del relleno */
+        bottom: 45px;  /* Ajuste la posición en pantallas aún más pequeñas */
+        right: 10px;  /* Ajuste del espacio lateral */
     }
 }
