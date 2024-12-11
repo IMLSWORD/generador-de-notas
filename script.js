@@ -1,13 +1,46 @@
-// Mostrar y ocultar el menú desplegable
-document.querySelector('.dropdown button').addEventListener('click', function() {
-    event.preventDefault();
-    const dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-});
-
-// Capturar el formulario
+// Obtener los elementos
+const showFormBtn = document.getElementById("showFormBtn");
+const formContainer = document.getElementById("formContainer");
+const noteForm = document.getElementById("noteForm");
+const dropdownBtn = document.querySelector('.dropdown button');
+const dropdownContent = document.querySelector('.dropdown-content');
 const form = document.querySelector('form');
 const notesSection = document.querySelector('.seccion-notas div:last-child');
+
+// Función para mostrar u ocultar el formulario
+showFormBtn.addEventListener("click", () => {
+    if (formContainer.style.display === "none" || formContainer.style.display === "") {
+        formContainer.style.display = "block";
+    } else {
+        formContainer.style.display = "none";
+    }
+});
+
+// Función para manejar el envío del formulario
+noteForm.addEventListener("submit", (e) => {
+    e.preventDefault();  // Evitar la recarga de la página
+
+    // Obtener los valores del formulario
+    const fecha = document.getElementById("fecha").value;
+    const titulo = document.getElementById("titulo").value;
+    const contenido = document.getElementById("contenido").value;
+    const monto = document.getElementById("monto").value;
+
+    // Mostrar los valores en la consola (aquí podrías guardarlos en una base de datos o localStorage)
+    console.log({ fecha, titulo, contenido, monto });
+
+    // Limpiar el formulario
+    noteForm.reset();
+
+    // Ocultar el formulario
+    formContainer.style.display = "none";
+});
+
+// Mostrar y ocultar el menú desplegable
+dropdownBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+});
 
 // Guardar notas en LocalStorage
 function saveNotesToLocalStorage(notes) {
@@ -87,7 +120,6 @@ function renderNote({ fecha, titulo, contenido, monto, categorias }) {
         ${
             monto
                 ? `<p style="font-size: 24px; color: var(--color-textos);"><strong>Monto:</strong> ₡${monto}</p>`
-
                 : ''
         }
     `;
@@ -144,7 +176,6 @@ let totalMonto = 0;
 function updateTotalMonto(amount) {
     totalMonto += amount;
     totalMontoElement.textContent = `Monto Total: ₡${totalMonto.toFixed(2)}`;
-
 }
 
 // Registrar el Service Worker
