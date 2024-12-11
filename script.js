@@ -1,188 +1,106 @@
-// Obtener los elementos
-const showFormBtn = document.getElementById("showFormBtn");
-const formContainer = document.getElementById("formContainer");
-const noteForm = document.getElementById("noteForm");
-const dropdownBtn = document.querySelector('.dropdown button');
-const dropdownContent = document.querySelector('.dropdown-content');
-const form = document.querySelector('form');
-const notesSection = document.querySelector('.seccion-notas div:last-child');
-
-// Función para mostrar u ocultar el formulario
-showFormBtn.addEventListener("click", () => {
-    if (formContainer.style.display === "none" || formContainer.style.display === "") {
-        formContainer.style.display = "block";
-    } else {
-        formContainer.style.display = "none";
-    }
-});
-
-// Función para manejar el envío del formulario
-noteForm.addEventListener("submit", (e) => {
-    e.preventDefault();  // Evitar la recarga de la página
-
-    // Obtener los valores del formulario
-    const fecha = document.getElementById("fecha").value;
-    const titulo = document.getElementById("titulo").value;
-    const contenido = document.getElementById("contenido").value;
-    const monto = document.getElementById("monto").value;
-
-    // Mostrar los valores en la consola (aquí podrías guardarlos en una base de datos o localStorage)
-    console.log({ fecha, titulo, contenido, monto });
-
-    // Limpiar el formulario
-    noteForm.reset();
-
-    // Ocultar el formulario
-    formContainer.style.display = "none";
-});
-
-// Mostrar y ocultar el menú desplegable
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtener elementos
+    const formContainer = document.getElementById("form");
+    const noteForm = formContainer.querySelector("form");
+    const dropdownBtn = document.querySelector('.dropdown button');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const notesSection = document.querySelector('.seccion-notas');
+  
+  // Mostrar y ocultar el menú desplegable
 dropdownBtn.addEventListener('click', function(event) {
-    event.preventDefault();
+    event.preventDefault();  // Previene el comportamiento predeterminado
     dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
 });
 
-// Guardar notas en LocalStorage
-function saveNotesToLocalStorage(notes) {
-    localStorage.setItem('notes', JSON.stringify(notes));
-}
-
-// Cargar notas desde LocalStorage
-function loadNotesFromLocalStorage() {
-    const savedNotes = localStorage.getItem('notes');
-    return savedNotes ? JSON.parse(savedNotes) : [];
-}
-
-// Renderizar todas las notas guardadas al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    const savedNotes = loadNotesFromLocalStorage();
-    savedNotes.forEach(renderNote);
-
-    // Calcular el total de montos al cargar
-    savedNotes.forEach(note => {
-        if (note.monto) {
-            updateTotalMonto(parseFloat(note.monto));
-        }
-    });
-});
-
-// Manejar el envío del formulario
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita que la página se recargue
-
-    // Obtener los valores del formulario
-    const fecha = form.elements['fecha'].value;
-    const titulo = form.elements['titulo'].value;
-    const contenido = form.elements['contenido'].value;
-    const monto = parseFloat(form.elements['monto'].value) || 0;
-    const categorias = Array.from(
+    // Manejar el envío del formulario
+    noteForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Evita que la página se recargue
+  
+      // Obtener datos del formulario
+      const fecha = noteForm.elements['fecha'].value;
+      const titulo = noteForm.elements['titulo'].value;
+      const contenido = noteForm.elements['contenido'].value;
+      const monto = parseFloat(noteForm.elements['monto'].value) || 0;
+      const categorias = Array.from(
         document.querySelectorAll('.dropdown-content input:checked')
-    ).map((input) => input.parentElement.textContent.trim());
-
-    // Validar datos requeridos
-    if (!fecha || !titulo || !contenido) {
+      ).map(input => input.parentElement.textContent.trim());
+  
+      // Validar campos
+      if (!fecha || !titulo || !contenido) {
         alert('Por favor, completa los campos obligatorios.');
         return;
+      }
+  
+      const noteData = { fecha, titulo, contenido, monto, categorias };
+  
+      // Guardar la nota
+      const notes = loadNotesFromLocalStorage();
+      notes.push(noteData);
+      saveNotesToLocalStorage(notes);
+  
+      // Renderizar la nueva nota
+      renderNote(noteData);
+  
+      // Limpiar formulario
+      noteForm.reset();
+      dropdownContent.style.display = 'none'; // Cerrar dropdown
+    });
+  
+    // Mostrar u ocultar el menú de categorías
+    dropdownBtn.addEventListener('click', function (event) {
+      event.preventDefault();
+      dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+    });
+  
+    // Cargar notas desde LocalStorage
+    function loadNotesFromLocalStorage() {
+      const savedNotes = localStorage.getItem('notes');
+      return savedNotes ? JSON.parse(savedNotes) : [];
     }
-
-    // Crear el objeto de la nota
-    const noteData = { fecha, titulo, contenido, monto, categorias };
-
+  
+    // Guardar notas en LocalStorage
+    function saveNotesToLocalStorage(notes) {
+      localStorage.setItem('notes', JSON.stringify(notes));
+    }
+  
     // Renderizar la nota en el DOM
-    renderNote(noteData);
-
-    // Guardar la nota en LocalStorage
-    const notes = loadNotesFromLocalStorage();
-    notes.push(noteData);
-    saveNotesToLocalStorage(notes);
-
-    // Actualizar el total de montos
-    updateTotalMonto(monto);
-
-    // Limpiar el formulario
-    form.reset();
-});
-
-// Renderizar una nota en el DOM
-function renderNote({ fecha, titulo, contenido, monto, categorias }) {
-    const note = document.createElement('div');
-    note.classList.add('note');
-    note.style.border = '1px solid var(--color-textos)';
-    note.style.margin = '1rem 0';
-    note.style.padding = '1rem';
-    note.style.color = 'var(--color-textos)'; 
-
-    note.innerHTML = `
+    function renderNote({ fecha, titulo, contenido, monto, categorias }) {
+      const noteElement = document.createElement('div');
+      noteElement.classList.add('note');
+      noteElement.innerHTML = `
         <h2>${titulo}</h2>
         <p><strong>Fecha:</strong> ${fecha}</p>
         <p><strong>Contenido:</strong> ${contenido}</p>
         <p><strong>Categorías:</strong> ${categorias.join(', ')}</p>
-        ${
-            monto
-                ? `<p style="font-size: 24px; color: var(--color-textos);"><strong>Monto:</strong> ₡${monto}</p>`
-                : ''
-        }
-    `;
-
-    // Crear botón de eliminación
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Eliminar';
-    deleteButton.style.marginTop = '1rem';
-    deleteButton.style.backgroundColor = 'red';
-    deleteButton.style.color = 'white';
-    deleteButton.style.border = 'none';
-    deleteButton.style.padding = '0.5rem 1rem';
-    deleteButton.style.cursor = 'pointer';
-
-    // Manejar el clic en el botón de eliminación
-    deleteButton.addEventListener('click', function () {
-        deleteNote(note, monto);
-    });
-
-    // Agregar el botón al final de la nota
-    note.appendChild(deleteButton);
-
-    notesSection.appendChild(note);
-}
-
-// Función para eliminar una nota
-function deleteNote(noteElement, monto) {
-    const notes = loadNotesFromLocalStorage();
-    const titleToDelete = noteElement.querySelector('h2').textContent;
-
-    // Eliminar la nota del localStorage
-    const updatedNotes = notes.filter(note => note.titulo !== titleToDelete);
-    saveNotesToLocalStorage(updatedNotes);
-
-    // Eliminar la nota del DOM
-    notesSection.removeChild(noteElement);
-
-    // Actualizar el total de montos
-    updateTotalMonto(-monto);
-}
-
-// Crear y configurar el elemento para mostrar el total de montos
-const totalMontoElement = document.createElement('p');
-totalMontoElement.classList.add('total-monto');
-totalMontoElement.style.fontSize = '1.5rem';
-totalMontoElement.style.fontWeight = 'bold';
-totalMontoElement.style.color = 'var(--color-oscuro)';
-totalMontoElement.textContent = 'Monto Total: $0';
-notesSection.appendChild(totalMontoElement);
-
-let totalMonto = 0;
-
-// Función para actualizar el total de montos
-function updateTotalMonto(amount) {
-    totalMonto += amount;
-    totalMontoElement.textContent = `Monto Total: ₡${totalMonto.toFixed(2)}`;
-}
-
-// Registrar el Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').then((registration) => {
-        console.log('Service Worker registrado:', registration);
-    }).catch((error) => {
-        console.error('Error al registrar el Service Worker:', error);
-    });
-}
+        ${monto ? `<p><strong>Monto:</strong> ₡${monto.toFixed(2)}</p>` : ''}
+      `;
+  
+      // Botón para eliminar la nota
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Eliminar';
+      deleteButton.addEventListener('click', () => deleteNote(titulo, noteElement, monto));
+      noteElement.appendChild(deleteButton);
+  
+      notesSection.appendChild(noteElement);
+    }
+  
+    // Eliminar una nota
+    function deleteNote(titulo, noteElement, monto) {
+      const notes = loadNotesFromLocalStorage();
+      const updatedNotes = notes.filter(note => note.titulo !== titulo);
+      saveNotesToLocalStorage(updatedNotes);
+      notesSection.removeChild(noteElement);
+      updateTotalMonto(-monto);
+    }
+  
+    // Actualizar monto total
+    let totalMonto = 0;
+    function updateTotalMonto(amount) {
+      totalMonto += amount;
+      document.querySelector('.total-monto').textContent = `Monto Total: ₡${totalMonto.toFixed(2)}`;
+    }
+  
+    // Cargar notas al iniciar la página
+    loadNotesFromLocalStorage().forEach(renderNote);
+  });
+  
