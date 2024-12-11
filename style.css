@@ -175,6 +175,22 @@ body {
     text-align: center;
     margin: 10px 0;
 }
+/* General */
+body {
+    background-color: var(--color-textos);
+    margin: 0;
+    padding: 0;
+}
+
+/* Títulos de las Notas */
+.seccion-notas .contenedor-notas-titulos h1,
+.seccion-notas .contenedor-notas-titulos p {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-textos);
+    text-align: center;
+    margin: 10px 0;
+}
 
 /* Notas Dinámicas */
 .note {
@@ -189,29 +205,31 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 150px;
-    max-height: 400px;
-    overflow: auto;
+    cursor: pointer; /* Hace que la nota sea clickeable */
+    overflow: hidden;
 }
 
+/* Solo mostrar el contenido del título al principio */
+.note .contenido {
+    display: none;
+}
+
+/* Mostrar el contenido cuando se hace clic en el título */
+.note.open .contenido {
+    display: block;
+}
+
+/* Estilo del Título de la Nota */
 .note h2 {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: var(--color-claro);
     text-align: center;
+    cursor: pointer;
 }
 
-.note p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0.5rem 0;
-}
-
-.note p strong {
-    color: var(--color-textos);
-}
-
+/* Estilo del Monto */
 .note p:last-child {
     font-size: 1.25rem;
     font-weight: bold;
@@ -219,9 +237,21 @@ body {
     text-align: center;
 }
 
+/* Hover sobre la nota */
 .note:hover {
     transform: translateY(-5px);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    height: 200px;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-claro);
+    padding: 40px 0;
+    background-color: var(--color-oscuro);
 }
 
 /* Footer */
